@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci8k27dha5o2q"]
+
+[ext_resource type="Script" path="res://Crops/CropScripts/beans.gd" id="1_7gje5"]
+[ext_resource type="Texture2D" uid="uid://b63gs60muwkml" path="res://Assets/beans.png" id="2_nlcq3"]
+
+[node name="Beans" type="Node"]
+script = ExtResource("1_7gje5")
+icon = ExtResource("2_nlcq3")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b40is873omc1f"]
+
+[ext_resource type="Script" path="res://Crops/CropScripts/potato.gd" id="1_cfn8g"]
+[ext_resource type="Texture2D" uid="uid://by5qo0bbcpc5a" path="res://Assets/potato.png" id="2_7ncdt"]
+
+[node name="Potato" type="Node"]
+script = ExtResource("1_cfn8g")
+icon = ExtResource("2_7ncdt")

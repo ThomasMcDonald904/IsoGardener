@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://3ab5bvfxeoue"]
+
+[ext_resource type="Script" path="res://Crops/CropScripts/wheat.gd" id="1_awu0w"]
+[ext_resource type="Texture2D" uid="uid://3h6jj75jtf5o" path="res://Assets/wheat.png" id="2_0jslk"]
+
+[node name="Wheat" type="Node"]
+script = ExtResource("1_awu0w")
+icon = ExtResource("2_0jslk")

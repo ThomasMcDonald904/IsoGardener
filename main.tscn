@@ -1,0 +1,138 @@
+[gd_scene load_steps=13 format=3 uid="uid://eytag76k33mb"]
+
+[ext_resource type="PackedScene" uid="uid://mxf3hmheajfp" path="res://world.tscn" id="1_gqtxk"]
+[ext_resource type="Script" path="res://main.gd" id="1_rclar"]
+[ext_resource type="Theme" uid="uid://gsyuuambsto1" path="res://theme.tres" id="3_3v6s3"]
+[ext_resource type="Script" path="res://Silo.gd" id="3_gb38w"]
+[ext_resource type="Script" path="res://StockCount.gd" id="5_bwotg"]
+[ext_resource type="Texture2D" uid="uid://bbh06gyjvg8kq" path="res://Assets/coin.png" id="5_obv1m"]
+[ext_resource type="Texture2D" uid="uid://dwh4gko24cf5n" path="res://Assets/timeX1.png" id="6_0lq6t"]
+[ext_resource type="Texture2D" uid="uid://bg2x3iw24442k" path="res://Assets/playStop.png" id="6_hh3vj"]
+[ext_resource type="Script" path="res://money.gd" id="6_xsp77"]
+[ext_resource type="Texture2D" uid="uid://ds5lubonhb0ka" path="res://Assets/timeX2.png" id="7_qd2p4"]
+[ext_resource type="Texture2D" uid="uid://csgqovoewlwuu" path="res://Assets/timeX4.png" id="8_vhsbj"]
+[ext_resource type="Texture2D" uid="uid://1r6oa6i6u1cp" path="res://Assets/sickle.png" id="9_hcxdt"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_rclar")
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="GUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4, 0.352941, 0.282353, 1)
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
+layout_mode = 0
+offset_right = 302.0
+offset_bottom = 74.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Silo" type="ItemList" parent="GUI/VBoxContainer/HBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(302, 74)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("3_3v6s3")
+auto_height = true
+max_columns = 8
+script = ExtResource("3_gb38w")
+metadata/_edit_use_anchors_ = true
+
+[node name="StockCount" type="Label" parent="GUI/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_3v6s3")
+text = "0"
+script = ExtResource("5_bwotg")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GUI/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_obv1m")
+
+[node name="money" type="Label" parent="GUI/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_3v6s3")
+text = "0
+"
+script = ExtResource("6_xsp77")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+offset_right = 253.0
+grow_vertical = 0
+
+[node name="PlayStop" type="Button" parent="GUI/HBoxContainer2"]
+layout_mode = 2
+tooltip_text = "Start stop"
+icon = ExtResource("6_hh3vj")
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/HBoxContainer2"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="TimeX1" type="Button" parent="GUI/HBoxContainer2"]
+layout_mode = 2
+tooltip_text = "Time  x 2"
+icon = ExtResource("6_0lq6t")
+
+[node name="TimeX2" type="Button" parent="GUI/HBoxContainer2"]
+layout_mode = 2
+tooltip_text = "Time  x 2"
+icon = ExtResource("7_qd2p4")
+
+[node name="TimeX4" type="Button" parent="GUI/HBoxContainer2"]
+layout_mode = 2
+tooltip_text = "Time x 4"
+icon = ExtResource("8_vhsbj")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="GUI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -253.0
+offset_top = -72.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Sickle" type="Button" parent="GUI/HBoxContainer3"]
+layout_mode = 2
+icon = ExtResource("9_hcxdt")
+
+[node name="World" parent="." instance=ExtResource("1_gqtxk")]
+
+[node name="GameClock" type="Timer" parent="."]
+
+[connection signal="item_clicked" from="GUI/VBoxContainer/HBoxContainer/Silo" to="GUI/VBoxContainer/HBoxContainer/Silo" method="_on_item_clicked"]
+[connection signal="button_up" from="GUI/HBoxContainer2/PlayStop" to="." method="_on_play_stop_button_up"]
+[connection signal="button_up" from="GUI/HBoxContainer2/TimeX1" to="." method="_on_time_x_1_button_up"]
+[connection signal="button_up" from="GUI/HBoxContainer2/TimeX2" to="." method="_on_time_x_2_button_up"]
+[connection signal="button_up" from="GUI/HBoxContainer2/TimeX4" to="." method="_on_time_x_4_button_up"]
+[connection signal="button_up" from="GUI/HBoxContainer3/Sickle" to="." method="_on_sickle_button_up"]
+[connection signal="timeout" from="GameClock" to="." method="_on_game_clock_timeout"]
