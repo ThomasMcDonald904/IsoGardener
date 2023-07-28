@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Iso Gardener"
-run/main_scene="res://main.tscn"
+run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-globals="*res://globals.gd"
+globals="*res://Scripts/globals.gd"
 
 [editor]
 

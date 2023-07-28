@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://darwsvmxomksq"]
+
+[ext_resource type="Script" path="res://Crops/CropScripts/baseCrop.gd" id="1_e8oyf"]
+[ext_resource type="Texture2D" uid="uid://lmejnvhajuj" path="res://Assets/pumpkin.png" id="2_u4qpj"]
+
+[node name="Pumpkin" type="Node"]
+script = ExtResource("1_e8oyf")
+crop_name = "Pumpkin"
+buy_price = 5
+sell_price = 8
+icon = ExtResource("2_u4qpj")
+crop_tileset_row = 3
+age_1 = 30
+age_2 = 67
+age_3 = 80

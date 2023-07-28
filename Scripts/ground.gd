@@ -1,26 +1,23 @@
 extends TileMap
 
 
+
 func get_all_first_elements(list: Array) -> Array:
 	var holder = []
 	for i in list:
 		holder.append(i[0])
 	return holder
 
-#func 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
 func check_grow():
+	# Grid cell structure: crop = [tile_pos, crop_reference, planting_time]
 	for crop in globals.grid:
 		var tick_age = globals.game_time - crop[2]
 		if tick_age >= crop[1].age_1:
-			set_cell(0, crop[0], get_cell_source_id(0, crop[0]), Vector2i(2, 0))
+			set_cell(0, crop[0], get_cell_source_id(0, crop[0]), Vector2i(2, crop[1].crop_tileset_row))
 		if tick_age >= crop[1].age_2:
-			set_cell(0, crop[0], get_cell_source_id(0, crop[0]), Vector2i(3, 0))
+			set_cell(0, crop[0], get_cell_source_id(0, crop[0]), Vector2i(3, crop[1].crop_tileset_row))
 		if tick_age >= crop[1].age_3:
-			set_cell(0, crop[0], get_cell_source_id(0, crop[0]), Vector2i(4, 0))
+			set_cell(0, crop[0], get_cell_source_id(0, crop[0]), Vector2i(4, crop[1].crop_tileset_row))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -34,7 +31,7 @@ func _process(_delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and globals.sickle_equiped:
 		var mouse_pos = to_local(get_viewport().get_mouse_position())
 		var tile_pos = local_to_map(mouse_pos)
-		if get_cell_atlas_coords(0, tile_pos) == Vector2i(4, 0):
+		if get_cell_atlas_coords(0, tile_pos).x == 4:
 			set_cell(0, tile_pos, get_cell_source_id(0, tile_pos), Vector2i(0, 0))
 			globals.money += globals.grid[get_all_first_elements(globals.grid).find(tile_pos)][1].sell_price
 			globals.grid.remove_at(get_all_first_elements(globals.grid).find(tile_pos))

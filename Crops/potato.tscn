@@ -1,8 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://b40is873omc1f"]
 
-[ext_resource type="Script" path="res://Crops/CropScripts/potato.gd" id="1_cfn8g"]
+[ext_resource type="Script" path="res://Crops/CropScripts/baseCrop.gd" id="1_666ah"]
 [ext_resource type="Texture2D" uid="uid://by5qo0bbcpc5a" path="res://Assets/potato.png" id="2_7ncdt"]
 
 [node name="Potato" type="Node"]
-script = ExtResource("1_cfn8g")
+script = ExtResource("1_666ah")
+crop_name = "Potato"
+buy_price = 2
+sell_price = 3
 icon = ExtResource("2_7ncdt")
+crop_tileset_row = 1

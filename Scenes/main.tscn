@@ -1,21 +1,21 @@
 [gd_scene load_steps=22 format=3 uid="uid://eytag76k33mb"]
 
-[ext_resource type="PackedScene" uid="uid://mxf3hmheajfp" path="res://world.tscn" id="1_gqtxk"]
-[ext_resource type="Script" path="res://main.gd" id="1_rclar"]
-[ext_resource type="Theme" uid="uid://gsyuuambsto1" path="res://theme.tres" id="3_3v6s3"]
-[ext_resource type="Script" path="res://Silo.gd" id="3_gb38w"]
-[ext_resource type="Script" path="res://StockCount.gd" id="5_bwotg"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_px2n4"]
+[ext_resource type="PackedScene" uid="uid://mxf3hmheajfp" path="res://Scenes/world.tscn" id="2_p8dei"]
+[ext_resource type="Theme" uid="uid://gsyuuambsto1" path="res://Themes/theme.tres" id="3_krxdg"]
+[ext_resource type="Script" path="res://Scripts/Silo.gd" id="4_foh8d"]
+[ext_resource type="Script" path="res://Scripts/StockCount.gd" id="5_4ry5y"]
 [ext_resource type="Texture2D" uid="uid://bbh06gyjvg8kq" path="res://Assets/coin.png" id="5_obv1m"]
 [ext_resource type="Texture2D" uid="uid://dwh4gko24cf5n" path="res://Assets/timeX1.png" id="6_0lq6t"]
 [ext_resource type="Texture2D" uid="uid://bg2x3iw24442k" path="res://Assets/playStop.png" id="6_hh3vj"]
-[ext_resource type="Script" path="res://money.gd" id="6_xsp77"]
+[ext_resource type="Script" path="res://Scripts/money.gd" id="7_jgim1"]
 [ext_resource type="Texture2D" uid="uid://ds5lubonhb0ka" path="res://Assets/timeX2.png" id="7_qd2p4"]
 [ext_resource type="Texture2D" uid="uid://csgqovoewlwuu" path="res://Assets/timeX4.png" id="8_vhsbj"]
 [ext_resource type="Texture2D" uid="uid://1r6oa6i6u1cp" path="res://Assets/sickle.png" id="9_hcxdt"]
 [ext_resource type="Texture2D" uid="uid://dvy8kcpv1i7tl" path="res://Assets/market.png" id="12_6ogsg"]
-[ext_resource type="Script" path="res://MarketGUI.gd" id="14_060jv"]
+[ext_resource type="Script" path="res://Scripts/MarketGUI.gd" id="14_ib48w"]
 [ext_resource type="Texture2D" uid="uid://c13shx1c3phe2" path="res://Assets/farm.png" id="14_n11de"]
-[ext_resource type="Theme" uid="uid://btfp3gk6nl4o7" path="res://marketTheme.tres" id="16_kc48l"]
+[ext_resource type="Theme" uid="uid://btfp3gk6nl4o7" path="res://Themes/marketTheme.tres" id="16_20fef"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4tk81"]
 
@@ -40,12 +40,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_rclar")
-
-[node name="World" parent="." instance=ExtResource("1_gqtxk")]
-visible = false
-top_level = true
-position = Vector2(206.927, 340.924)
+script = ExtResource("1_px2n4")
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
@@ -81,17 +76,17 @@ clip_contents = false
 custom_minimum_size = Vector2(302, 74)
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 auto_height = true
 max_columns = 8
-script = ExtResource("3_gb38w")
+script = ExtResource("4_foh8d")
 metadata/_edit_use_anchors_ = true
 
 [node name="StockCount" type="Label" parent="GUI/InfoContainer/SiloContainer"]
 layout_mode = 2
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 text = "0"
-script = ExtResource("5_bwotg")
+script = ExtResource("5_4ry5y")
 
 [node name="MoneyContainer" type="HBoxContainer" parent="GUI/InfoContainer"]
 layout_mode = 2
@@ -102,10 +97,10 @@ texture = ExtResource("5_obv1m")
 
 [node name="money" type="Label" parent="GUI/InfoContainer/MoneyContainer"]
 layout_mode = 2
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 text = "0
 "
-script = ExtResource("6_xsp77")
+script = ExtResource("7_jgim1")
 
 [node name="MainGUI" type="Control" parent="GUI"]
 visible = false
@@ -183,7 +178,7 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 2
-script = ExtResource("14_060jv")
+script = ExtResource("14_ib48w")
 
 [node name="Farm" type="Button" parent="GUI/MarketGUI"]
 top_level = true
@@ -210,7 +205,7 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 
 [node name="MarginContainer" type="MarginContainer" parent="GUI/MarketGUI/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
@@ -220,7 +215,7 @@ size_flags_stretch_ratio = 2.64
 [node name="PanelContainer" type="PanelContainer" parent="GUI/MarketGUI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/MarketGUI/HBoxContainer/PanelContainer"]
 layout_mode = 2
@@ -228,7 +223,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 60
 text = "buy"
@@ -238,7 +233,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.7
-theme = ExtResource("16_kc48l")
+theme = ExtResource("16_20fef")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4tk81")
 icon_scale = 0.75
 
@@ -246,15 +241,27 @@ icon_scale = 0.75
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.57
-theme = ExtResource("16_kc48l")
+theme = ExtResource("16_20fef")
 theme_override_styles/panel = SubResource("StyleBoxFlat_f0hmo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="PurchaseName" type="Label" parent="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Lorem Ipsum                    "
+
+[node name="PurchaseName" type="Label" parent="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+size_flags_stretch_ratio = 2.34
+
+[node name="Max" type="Button" parent="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("3_krxdg")
+theme_override_font_sizes/font_size = 39
+text = "MAX"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -268,7 +275,7 @@ custom_arrow_step = 1.0
 
 [node name="x" type="Label" parent="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 theme_override_font_sizes/font_size = 34
 text = " x "
 horizontal_alignment = 1
@@ -276,21 +283,21 @@ horizontal_alignment = 1
 [node name="Price" type="Label" parent="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 theme_override_font_sizes/font_size = 47
 text = "___"
 horizontal_alignment = 1
 
 [node name="=" type="Label" parent="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 theme_override_font_sizes/font_size = 44
 text = "= "
 
 [node name="Total" type="RichTextLabel" parent="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "___"
@@ -300,7 +307,7 @@ fit_content = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 theme_override_font_sizes/font_size = 33
 theme_override_styles/normal = SubResource("StyleBoxFlat_uc41u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pffip")
@@ -310,7 +317,7 @@ text = "purchase"
 [node name="PanelContainer2" type="PanelContainer" parent="GUI/MarketGUI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/MarketGUI/HBoxContainer/PanelContainer2"]
 layout_mode = 2
@@ -318,7 +325,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="GUI/MarketGUI/HBoxContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 60
 text = "sell"
@@ -332,7 +339,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 2
 size_flags_stretch_ratio = 2.64
-theme = ExtResource("3_3v6s3")
+theme = ExtResource("3_krxdg")
 theme_override_font_sizes/normal_font_size = 43
 bbcode_enabled = true
 text = "[center][wave amp=25 freq=5]Coming soon"
@@ -343,6 +350,9 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_stretch_ratio = 2.64
+
+[node name="World" parent="." instance=ExtResource("2_p8dei")]
+visible = false
 
 [node name="GameClock" type="Timer" parent="."]
 
@@ -355,6 +365,7 @@ size_flags_stretch_ratio = 2.64
 [connection signal="button_up" from="GUI/MainGUI/Market" to="." method="_on_market_button_up"]
 [connection signal="button_up" from="GUI/MarketGUI/Farm" to="." method="_on_farm_button_up"]
 [connection signal="item_clicked" from="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/AvailableSeeds" to="GUI/MarketGUI" method="_on_available_seeds_item_clicked"]
+[connection signal="button_up" from="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/Max" to="GUI/MarketGUI" method="_on_max_button_up"]
 [connection signal="value_changed" from="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/Amount" to="GUI/MarketGUI" method="_on_amount_value_changed"]
 [connection signal="button_up" from="GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/Purchase" to="GUI/MarketGUI" method="_on_purchase_button_up"]
 [connection signal="timeout" from="GameClock" to="." method="_on_game_clock_timeout"]

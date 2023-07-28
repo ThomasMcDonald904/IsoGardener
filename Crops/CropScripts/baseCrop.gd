@@ -1,10 +1,11 @@
 extends Node
 
-@export var crop_name = "Wheat"
+@export var crop_name: String
 
 @export var buy_price = 1
-@export var sell_price = 2
-@export var icon: Texture = null
+@export var sell_price = 1
+@export var icon: Texture
+@export var crop_tileset_row: int # Starting from 0
 
 # Given in ticks passed
 @export var age_1 = 20

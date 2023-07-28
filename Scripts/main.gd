@@ -51,6 +51,7 @@ func _on_sickle_button_up():
 
 
 func _on_market_button_up():
+	$GUI/MarketGUI/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/Amount.value = 1
 	get_node("World").visible = false
 	get_node("GUI/MainGUI").visible = false
 	get_node("GUI/MarketGUI").visible = true
