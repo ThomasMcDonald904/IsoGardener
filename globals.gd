@@ -7,10 +7,14 @@ var tick_speed = 1
 
 var selected_crop = []
 
-var crops_available = [[preload("res://Crops/wheat.tscn").instantiate(), 20], [preload("res://Crops/beans.tscn").instantiate(), 1], [preload("res://Crops/potato.tscn").instantiate(), 0]]
+var crops_available = []
+
+var crops_in_market = [preload("res://Crops/wheat.tscn").instantiate(), preload("res://Crops/beans.tscn").instantiate(), preload("res://Crops/potato.tscn").instantiate()]
 
 var mouse_on_ground = false
 
 var sickle_equiped = false
 
-var money = 0
+var money = 20
+
+var grid = []

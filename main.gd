@@ -1,12 +1,15 @@
 extends Node2D
 
+
 func _ready():
 	$GameClock.wait_time = 1.0/globals.tick_speed
 	$GameClock.start()
+	
+	$GUI/MainGUI.visible = true
+	$GUI/MarketGUI.visible = false
+	$World.visible = true
 
 func _process(_delta):
-	if Input.is_action_just_pressed("Debug"):
-		print(globals.selected_crop)
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		globals.sickle_equiped = false
 		Input.set_custom_mouse_cursor(null)
@@ -43,5 +46,17 @@ func _on_time_x_1_button_up():
 func _on_sickle_button_up():
 	globals.sickle_equiped = true
 	Input.set_custom_mouse_cursor(load("res://Assets/sickle.png"), 0, Vector2(5, 5))
-	$"GUI/VBoxContainer/HBoxContainer/Silo".deselect_all()
+	$"GUI/InfoContainer/SiloContainer/Silo".deselect_all()
 	globals.selected_crop = []
+
+
+func _on_market_button_up():
+	get_node("World").visible = false
+	get_node("GUI/MainGUI").visible = false
+	get_node("GUI/MarketGUI").visible = true
+
+
+func _on_farm_button_up():
+	get_node("World").visible = true
+	get_node("GUI/MainGUI").visible = true
+	get_node("GUI/MarketGUI").visible = false

@@ -1,5 +1,7 @@
 extends Node
 
+@export var crop_name = "Potato"
+
 @export var buy_price = 4
 @export var sell_price = 5
 @export var icon: Texture = null
