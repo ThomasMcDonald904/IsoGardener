@@ -14,6 +14,9 @@ func _process(_delta):
 		globals.sickle_equiped = false
 		Input.set_custom_mouse_cursor(null)
 
+func _unhandled_input(event):
+	if event.is_action_pressed("Debug"):
+		$World/MisfortuneManager.emit_signal("ColdSnap", 10)
 
 func _on_game_clock_timeout():
 	globals.game_time += globals.tick_speed

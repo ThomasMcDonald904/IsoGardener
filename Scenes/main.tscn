@@ -103,7 +103,6 @@ text = "0
 script = ExtResource("7_jgim1")
 
 [node name="MainGUI" type="Control" parent="GUI"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
@@ -174,6 +173,7 @@ grow_vertical = 2
 icon = ExtResource("12_6ogsg")
 
 [node name="MarketGUI" type="Control" parent="GUI"]
+visible = false
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -352,7 +352,6 @@ size_flags_horizontal = 8
 size_flags_stretch_ratio = 2.64
 
 [node name="World" parent="." instance=ExtResource("2_p8dei")]
-visible = false
 
 [node name="GameClock" type="Timer" parent="."]
 

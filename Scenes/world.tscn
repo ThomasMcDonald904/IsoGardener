@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://mxf3hmheajfp"]
+[gd_scene load_steps=13 format=3 uid="uid://mxf3hmheajfp"]
 
 [ext_resource type="Texture2D" uid="uid://ctaycn3rivoa0" path="res://Assets/cropTileset.png" id="1_u2k2q"]
 [ext_resource type="Script" path="res://Scripts/ground.gd" id="2_70w5t"]
+[ext_resource type="Texture2D" uid="uid://dvtr4jat8n5s7" path="res://Assets/Particles/coldSnapParticle.png" id="3_ksecq"]
+[ext_resource type="Script" path="res://Scripts/MisfortuneManager.gd" id="3_mwcud"]
+[ext_resource type="Texture2D" uid="uid://n3jtw8q1otjo" path="res://Assets/Particles/coldSnapParticleSnow.png" id="4_5br74"]
+[ext_resource type="Script" path="res://Scripts/ColdSnap.gd" id="4_xwcc1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jquug"]
 resource_name = "Wheat"
@@ -21,8 +25,6 @@ texture_region_size = Vector2i(64, 64)
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
-0:2/0 = 0
-0:3/0 = 0
 1:3/0 = 0
 2:3/0 = 0
 3:3/0 = 0
@@ -33,6 +35,81 @@ tile_shape = 1
 tile_size = Vector2i(64, 32)
 sources/0 = SubResource("TileSetAtlasSource_jquug")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_34iku"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(1, 500, 1)
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 22.5
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 625.0
+initial_velocity_max = 779.41
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 2.0
+
+[sub_resource type="Animation" id="Animation_oxxvt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oen62"]
+resource_name = "ColdSnap"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColdSnap/Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.25, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.427451), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColdSnap/GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColdSnap/GPUParticles2D2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lo0ma"]
+_data = {
+"ColdSnap": SubResource("Animation_oen62"),
+"RESET": SubResource("Animation_oxxvt")
+}
+
 [node name="World" type="Node2D"]
 position = Vector2(200, 324.008)
 
@@ -42,6 +119,13 @@ tile_set = SubResource("TileSet_qiinp")
 format = 2
 layer_0/name = "Soil"
 layer_0/tile_data = PackedInt32Array(-589820, 0, 0, -524283, 0, 0, -458747, 0, 0, -393210, 0, 0, -327674, 0, 0, -262137, 0, 0, -196601, 0, 0, -131065, 0, 0, -131064, 0, 0, -65529, 0, 0, -65528, 0, 0, 9, 0, 0, 65544, 0, 0, 131080, 0, 0, 196615, 0, 0, 262151, 0, 0, 327686, 0, 0, 393222, 0, 0, 458757, 0, 0, 524293, 0, 0, 589828, 0, 0, 65536, 0, 0, 131073, 0, 0, 196609, 0, 0, 262146, 0, 0, 327682, 0, 0, 393219, 0, 0, 458755, 0, 0, 524292, 0, 0, 65540, 0, 0, 5, 0, 0, -65531, 0, 0, -131066, 0, 0, -196602, 0, 0, -262138, 0, 0, -327675, 0, 0, -393211, 0, 0, -458748, 0, 0, -524284, 0, 0, -458749, 0, 0, -393213, 0, 0, -327678, 0, 0, -262142, 0, 0, -196607, 0, 0, -131071, 0, 0, -65536, 0, 0, 1, 0, 0, -65535, 0, 0, -131070, 0, 0, -196606, 0, 0, -262141, 0, 0, -327677, 0, 0, -393212, 0, 0, -327676, 0, 0, -262140, 0, 0, -196605, 0, 0, -131069, 0, 0, -65534, 0, 0, 2, 0, 0, 65537, 0, 0, 131074, 0, 0, 65538, 0, 0, 3, 0, 0, -65533, 0, 0, -131068, 0, 0, -196604, 0, 0, -262139, 0, 0, -196603, 0, 0, -131067, 0, 0, -65532, 0, 0, 4, 0, 0, 65539, 0, 0, 131075, 0, 0, 196610, 0, 0, 262147, 0, 0, 196611, 0, 0, 131076, 0, 0, 196612, 0, 0, 131077, 0, 0, 65541, 0, 0, 6, 0, 0, -65530, 0, 0, 7, 0, 0, 65542, 0, 0, 131078, 0, 0, 196613, 0, 0, 262149, 0, 0, 327684, 0, 0, 262148, 0, 0, 327683, 0, 0, 393220, 0, 0, 458756, 0, 0, 393221, 0, 0, 327685, 0, 0, 262150, 0, 0, 196614, 0, 0, 131079, 0, 0, 65543, 0, 0, 8, 0, 0, 655365, 0, 0, 589829, 0, 0, 524294, 0, 0, 458758, 0, 0, 393223, 0, 0, 327687, 0, 0, 262152, 0, 0, 196616, 0, 0, 131081, 0, 0, 65545, 0, 0, 0, 0, 0)
+layer_1/name = ""
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array()
 script = ExtResource("2_70w5t")
 
 [node name="Area2D" type="Area2D" parent="Ground"]
@@ -49,5 +133,61 @@ script = ExtResource("2_70w5t")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/Area2D"]
 polygon = PackedVector2Array(0, 14.992, 320, -145.008, 672, 30.992, 672, 48.992, 352, 208.992, 0, 32.992)
 
+[node name="MisfortuneManager" type="Node2D" parent="."]
+position = Vector2(-200, -324)
+script = ExtResource("3_mwcud")
+
+[node name="ColdSnap" type="Node2D" parent="MisfortuneManager"]
+script = ExtResource("4_xwcc1")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="MisfortuneManager/ColdSnap"]
+position = Vector2(1172, 332.992)
+emitting = false
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_34iku")
+texture = ExtResource("3_ksecq")
+lifetime = 1.5
+one_shot = true
+randomness = 1.0
+visibility_rect = Rect2(-847, -124, 16, 16)
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="MisfortuneManager/ColdSnap"]
+position = Vector2(1172, 332.992)
+emitting = false
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_34iku")
+texture = ExtResource("4_5br74")
+lifetime = 1.5
+one_shot = true
+randomness = 1.0
+visibility_rect = Rect2(-847, -124, 16, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MisfortuneManager/ColdSnap"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_lo0ma")
+}
+
+[node name="Control" type="Control" parent="MisfortuneManager/ColdSnap"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 650.0
+size_flags_horizontal = 0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="MisfortuneManager/ColdSnap/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
 [connection signal="mouse_entered" from="Ground/Area2D" to="Ground" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Ground/Area2D" to="Ground" method="_on_area_2d_mouse_exited"]
+[connection signal="ColdSnap" from="MisfortuneManager" to="Ground" method="_on_misfortune_manager_cold_snap"]
+[connection signal="ColdSnap" from="MisfortuneManager" to="MisfortuneManager/ColdSnap" method="_on_misfortune_manager_cold_snap"]
