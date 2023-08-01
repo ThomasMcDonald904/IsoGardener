@@ -18,7 +18,11 @@ var mouse_on_ground = false
 
 var sickle_equiped = false
 
-var money = 110
+var money = 10
 
 # Grid cell structure: crop = [tile_pos, crop_reference, planting_time]
 var grid = []
+var diseased_grid = []
+
+var input_count = 0
+

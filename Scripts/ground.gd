@@ -8,7 +8,7 @@ func get_random_selection_with_percentage(input_array: Array, percentage: int) -
 	var nbr_elements_to_select = len(input_array) * percentage / 100
 
 	while len(selected_elements) < nbr_elements_to_select:
-		var random_index = randi_range(0, len(input_array))
+		var random_index = randi_range(0, len(input_array) - 1)
 		var element = input_array[random_index]
 		
 		if not selected_elements.has(element):
@@ -64,4 +64,5 @@ func _on_misfortune_manager_cold_snap(percent_frozen):
 	var frozen_crops = get_random_selection_with_percentage(globals.grid, percent_frozen)
 	for frozen_crop in frozen_crops:
 		set_cell(0, frozen_crop[0], get_cell_source_id(0, frozen_crop[0]), Vector2i(0, 1))
-		frozen_crops.erase(frozen_crop)
+		globals.diseased_grid.append([frozen_crop[0], frozen_crop[1], globals.game_time])
+		globals.grid.erase(frozen_crop)

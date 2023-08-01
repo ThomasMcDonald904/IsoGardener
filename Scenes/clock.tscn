@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://gk8w1l5qhvyw"]
+
+[ext_resource type="Texture2D" uid="uid://cyx2gaitn03yx" path="res://Assets/clock/clockBase.png" id="1_86sft"]
+[ext_resource type="Script" path="res://scripts/clock.gd" id="1_ysj6y"]
+[ext_resource type="Texture2D" uid="uid://4phmjtd3e3vj" path="res://Assets/clock/clockHourHand.png" id="2_y3jl5"]
+[ext_resource type="Texture2D" uid="uid://drnrxi6kqyki8" path="res://Assets/clock/clockMinuteHand.png" id="3_js2x4"]
+
+[node name="Clock" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
+script = ExtResource("1_ysj6y")
+
+[node name="Base" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_86sft")
+
+[node name="HourHand" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("2_y3jl5")
+
+[node name="MinuteHand" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("3_js2x4")

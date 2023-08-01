@@ -1,0 +1,214 @@
+[gd_scene load_steps=16 format=3 uid="uid://dpmr73jtcnfuj"]
+
+[ext_resource type="Theme" uid="uid://d0p7dfyq74jcg" path="res://Themes/how_to_play.tres" id="1_tuite"]
+[ext_resource type="Script" path="res://Scripts/how_to_play.gd" id="1_ytytt"]
+[ext_resource type="Theme" uid="uid://bkc7o43dpgsv0" path="res://Themes/start_menu_buttons.tres" id="2_88kav"]
+[ext_resource type="Texture2D" uid="uid://cxmkgvmv74ov3" path="res://Assets/how_to_play/silo.png" id="2_c5kp8"]
+[ext_resource type="Texture2D" uid="uid://1r6oa6i6u1cp" path="res://Assets/sickle.png" id="3_hgfq2"]
+[ext_resource type="Texture2D" uid="uid://bg2x3iw24442k" path="res://Assets/playStop.png" id="4_haqt1"]
+[ext_resource type="Texture2D" uid="uid://dvy8kcpv1i7tl" path="res://Assets/market.png" id="5_idhcx"]
+[ext_resource type="Texture2D" uid="uid://dwh4gko24cf5n" path="res://Assets/timeX1.png" id="5_vj4dk"]
+[ext_resource type="Texture2D" uid="uid://ds5lubonhb0ka" path="res://Assets/timeX2.png" id="6_5oyfn"]
+[ext_resource type="Texture2D" uid="uid://c13shx1c3phe2" path="res://Assets/farm.png" id="6_orqda"]
+[ext_resource type="Texture2D" uid="uid://csgqovoewlwuu" path="res://Assets/timeX4.png" id="7_bhhpi"]
+[ext_resource type="Texture2D" uid="uid://oock5mkrg5eg" path="res://Assets/how_to_play/coldSnapMisfortune.png" id="8_do8xw"]
+[ext_resource type="Texture2D" uid="uid://dac78kl23a1w5" path="res://Assets/how_to_play/deadSoilMisfortune.png" id="9_blopk"]
+[ext_resource type="Texture2D" uid="uid://cj7kk3pec45gv" path="res://Assets/how_to_play/wormMisfortune.png" id="10_o8xcn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0m6nn"]
+bg_color = Color(0.603922, 0.501961, 0, 1)
+
+[node name="HowToPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ytytt")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_0m6nn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -481.5
+offset_right = 481.5
+offset_bottom = 118.0
+grow_horizontal = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("1_tuite")
+theme_override_font_sizes/font_size = 42
+text = "You must take care of an isometric farm."
+
+[node name="Back" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_88kav")
+theme_override_font_sizes/font_size = 38
+text = "back"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(-0.081, 0)
+layout_mode = 2
+texture = ExtResource("2_c5kp8")
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(735.117, 0)
+layout_mode = 2
+theme = ExtResource("1_tuite")
+theme_override_font_sizes/font_size = 22
+text = "This is the silo, it indicates how many of each crop you can plant. 
+Crops in gray are ones that you have once bought, but are now depleted and you must buy more at the market.
+To start planting a crop, click on a valid crop and left-click drag on the field
+"
+autowrap_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_idhcx")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_orqda")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_tuite")
+text = "Press these buttons to switch between the market and the farm"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_tuite")
+text = "The large coin indicates how much currency you curently have."
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+texture = ExtResource("3_hgfq2")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("1_tuite")
+text = "click on the sickle button to harvest mature crops
+Then press the right mouse button to stop using it"
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_haqt1")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer2/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_vj4dk")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer2/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_5oyfn")
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer2/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_bhhpi")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/HBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("1_tuite")
+text = "The time buttons are used to make time on the farm go by faster. They include  respectively: start-stop, normal time, fast time and ultra-fast time"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.666667, 0.666667, 0.666667, 1)
+text = "faded items will appear in next update"
+clip_text = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2/HBoxContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = ExtResource("8_do8xw")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer2/HBoxContainer3/VBoxContainer"]
+modulate = Color(0.603922, 0.603922, 0.603922, 0.745098)
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = ExtResource("9_blopk")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer2/HBoxContainer3/VBoxContainer"]
+modulate = Color(0.603922, 0.603922, 0.603922, 0.745098)
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = ExtResource("10_o8xcn")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2(325, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_tuite")
+text = "Your field and crops may occasionally suffer from problems, such as a cold snap, poor soil or pests. Some of these have solutions, while others prevent you from planting until they heal."
+autowrap_mode = 2
+
+[connection signal="button_up" from="VBoxContainer/HBoxContainer3/Back" to="." method="_on_back_button_up"]

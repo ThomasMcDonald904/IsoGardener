@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d0p7dfyq74jcg"]
+
+[ext_resource type="FontFile" uid="uid://b683w81hu8eo7" path="res://Assets/lemon_milk/LEMONMILK-Light.otf" id="1_mrfsl"]
+
+[resource]
+default_font = ExtResource("1_mrfsl")
+default_font_size = 22
