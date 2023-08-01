@@ -7,89 +7,10 @@
 
 [sub_resource type="Theme" id="Theme_kxa8p"]
 default_font = ExtResource("2_1w6dn")
-default_font_size = 109
+default_font_size = 151
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource("1_ur2ji")
-
-[node name="BouncyCrops" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="BouncyCrops"]
-position = Vector2(148, 237)
-scale = Vector2(1.65625, 1.65625)
-texture = ExtResource("1_5tdwx")
-region_enabled = true
-region_rect = Rect2(256, 0, 64.7678, 64)
-
-[node name="Sprite2D10" type="Sprite2D" parent="BouncyCrops"]
-position = Vector2(1078, 387)
-scale = Vector2(1.65625, 1.65625)
-texture = ExtResource("1_5tdwx")
-region_enabled = true
-region_rect = Rect2(256, 0, 64.7678, 64)
-
-[node name="Sprite2D6" type="Sprite2D" parent="BouncyCrops"]
-position = Vector2(575, 497)
-scale = Vector2(1.65625, 1.65625)
-texture = ExtResource("1_5tdwx")
-region_enabled = true
-region_rect = Rect2(256, 0, 64.7678, 64)
-
-[node name="Sprite2D7" type="Sprite2D" parent="BouncyCrops"]
-position = Vector2(679, 139)
-scale = Vector2(1.65625, 1.65625)
-texture = ExtResource("1_5tdwx")
-region_enabled = true
-region_rect = Rect2(192, 64, 64, 64)
-
-[node name="Sprite2D9" type="Sprite2D" parent="BouncyCrops"]
-position = Vector2(438, 355)
-scale = Vector2(1.65625, 1.65625)
-texture = ExtResource("1_5tdwx")
-region_enabled = true
-region_rect = Rect2(192, 64, 64, 64)
-
-[node name="Sprite2D2" type="Sprite2D" parent="BouncyCrops"]
-position = Vector2(923, 162)
-scale = Vector2(1.65625, 1.65625)
-texture = ExtResource("1_5tdwx")
-region_enabled = true
-region_rect = Rect2(192, 64, 64, 64)
-
-[node name="Sprite2D3" type="Sprite2D" parent="BouncyCrops"]
-position = Vector2(374, 109)
-scale = Vector2(1.65625, 1.65625)
-texture = ExtResource("1_5tdwx")
-region_enabled = true
-region_rect = Rect2(128, 0, 64, 64)
-
-[node name="Sprite2D8" type="Sprite2D" parent="BouncyCrops"]
-position = Vector2(1067, 506)
-scale = Vector2(1.65625, 1.65625)
-texture = ExtResource("1_5tdwx")
-region_enabled = true
-region_rect = Rect2(128, 0, 64, 64)
-
-[node name="Sprite2D4" type="Sprite2D" parent="BouncyCrops"]
-position = Vector2(95, 473)
-scale = Vector2(1.65625, 1.65625)
-texture = ExtResource("1_5tdwx")
-region_enabled = true
-region_rect = Rect2(256, 192, 64, 64)
-
-[node name="Sprite2D5" type="Sprite2D" parent="BouncyCrops"]
-position = Vector2(765, 341)
-scale = Vector2(1.65625, 1.65625)
-texture = ExtResource("1_5tdwx")
-region_enabled = true
-region_rect = Rect2(256, 192, 64, 64)
-
-[node name="Sprite2D11" type="Sprite2D" parent="BouncyCrops"]
-position = Vector2(1069, 94)
-scale = Vector2(1.65625, 1.65625)
-texture = ExtResource("1_5tdwx")
-region_enabled = true
-region_rect = Rect2(256, 192, 64, 64)
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
@@ -100,6 +21,94 @@ offset_right = 1200.0
 offset_bottom = 600.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.109804, 0.14902, 0.443137, 1)
+
+[node name="BouncyCrops" type="Node2D" parent="GUI"]
+
+[node name="Sprite2D" type="Sprite2D" parent="GUI/BouncyCrops"]
+position = Vector2(148, 237)
+scale = Vector2(1.65625, 1.65625)
+texture = ExtResource("1_5tdwx")
+region_enabled = true
+region_rect = Rect2(256, 0, 64.7678, 64)
+
+[node name="Sprite2D10" type="Sprite2D" parent="GUI/BouncyCrops"]
+position = Vector2(1078, 387)
+scale = Vector2(1.65625, 1.65625)
+texture = ExtResource("1_5tdwx")
+region_enabled = true
+region_rect = Rect2(256, 0, 64.7678, 64)
+
+[node name="Sprite2D6" type="Sprite2D" parent="GUI/BouncyCrops"]
+position = Vector2(575, 497)
+scale = Vector2(1.65625, 1.65625)
+texture = ExtResource("1_5tdwx")
+region_enabled = true
+region_rect = Rect2(256, 0, 64.7678, 64)
+
+[node name="Sprite2D7" type="Sprite2D" parent="GUI/BouncyCrops"]
+position = Vector2(679, 139)
+scale = Vector2(1.65625, 1.65625)
+texture = ExtResource("1_5tdwx")
+region_enabled = true
+region_rect = Rect2(192, 64, 64, 64)
+
+[node name="Sprite2D9" type="Sprite2D" parent="GUI/BouncyCrops"]
+position = Vector2(438, 355)
+scale = Vector2(1.65625, 1.65625)
+texture = ExtResource("1_5tdwx")
+region_enabled = true
+region_rect = Rect2(192, 64, 64, 64)
+
+[node name="Sprite2D2" type="Sprite2D" parent="GUI/BouncyCrops"]
+position = Vector2(923, 162)
+scale = Vector2(1.65625, 1.65625)
+texture = ExtResource("1_5tdwx")
+region_enabled = true
+region_rect = Rect2(192, 64, 64, 64)
+
+[node name="Sprite2D3" type="Sprite2D" parent="GUI/BouncyCrops"]
+position = Vector2(374, 109)
+scale = Vector2(1.65625, 1.65625)
+texture = ExtResource("1_5tdwx")
+region_enabled = true
+region_rect = Rect2(128, 0, 64, 64)
+
+[node name="Sprite2D8" type="Sprite2D" parent="GUI/BouncyCrops"]
+position = Vector2(1067, 506)
+scale = Vector2(1.65625, 1.65625)
+texture = ExtResource("1_5tdwx")
+region_enabled = true
+region_rect = Rect2(128, 0, 64, 64)
+
+[node name="Sprite2D4" type="Sprite2D" parent="GUI/BouncyCrops"]
+position = Vector2(95, 473)
+scale = Vector2(1.65625, 1.65625)
+texture = ExtResource("1_5tdwx")
+region_enabled = true
+region_rect = Rect2(256, 192, 64, 64)
+
+[node name="Sprite2D5" type="Sprite2D" parent="GUI/BouncyCrops"]
+position = Vector2(765, 341)
+scale = Vector2(1.65625, 1.65625)
+texture = ExtResource("1_5tdwx")
+region_enabled = true
+region_rect = Rect2(256, 192, 64, 64)
+
+[node name="Sprite2D11" type="Sprite2D" parent="GUI/BouncyCrops"]
+position = Vector2(1069, 94)
+scale = Vector2(1.65625, 1.65625)
+texture = ExtResource("1_5tdwx")
+region_enabled = true
+region_rect = Rect2(256, 192, 64, 64)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
 layout_mode = 1
@@ -117,16 +126,19 @@ theme = SubResource("Theme_kxa8p")
 text = "IsoGardener"
 
 [node name="Start" type="Button" parent="GUI/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_yq5md")
 text = "Start"
 
 [node name="HowToPlay" type="Button" parent="GUI/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_yq5md")
 text = "How to Play"
 
 [node name="Exit" type="Button" parent="GUI/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_yq5md")
 text = "exit"
