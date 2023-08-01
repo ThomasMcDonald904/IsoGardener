@@ -126,19 +126,16 @@ theme = SubResource("Theme_kxa8p")
 text = "IsoGardener"
 
 [node name="Start" type="Button" parent="GUI/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("3_yq5md")
 text = "Start"
 
 [node name="HowToPlay" type="Button" parent="GUI/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("3_yq5md")
 text = "How to Play"
 
 [node name="Exit" type="Button" parent="GUI/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("3_yq5md")
 text = "exit"
