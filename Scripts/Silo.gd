@@ -30,7 +30,7 @@ func _process(_delta):
 			set_item_disabled(globals.crops_available.find(crop), false)
 		if crop[0] not in get_all_first_elements(items):
 			items.append(crop)
-			add_item("", crop[0].icon) 
+			add_item("", crop[0].icon) 	
 	if Input.is_action_just_released("leftclick") and not Rect2(Vector2(), size).has_point(get_local_mouse_position()) and not globals.mouse_on_ground:
 		deselect_all()
 		globals.selected_crop = []

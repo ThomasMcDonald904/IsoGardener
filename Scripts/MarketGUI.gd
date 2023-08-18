@@ -12,10 +12,10 @@ func get_all_first_elements(list: Array) -> Array:
 
 func _ready():
 	globals.crops_in_market.sort_custom(func(a, b): return a.buy_price < b.buy_price)
-	for crop in globals.crops_in_market:
-		$"HBoxContainer/PanelContainer/VBoxContainer/AvailableSeeds".add_item(crop.crop_name + " - " + str(crop.buy_price) + "$", crop.icon)
+	for crop_it in globals.crops_in_market:
+		$"HBoxContainer/PanelContainer/VBoxContainer/AvailableSeeds".add_item(crop_it.crop_name + " - " + str(crop_it.buy_price) + "$", crop_it.icon)
 
-func _on_available_seeds_item_clicked(index, at_position, mouse_button_index):
+func _on_available_seeds_item_clicked(index, _at_position, _mouse_button_index):
 	$HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/Amount.value = 1
 	crop = globals.crops_in_market[index]
 	var final_amount = crop.buy_price * $HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/Amount.value

@@ -9,8 +9,8 @@ var cold_snap_time = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if globals.game_time % 150 == 0 and globals.game_time != 0:
+func _process(_delta):
+	if globals.game_time - cold_snap_time == 150 and globals.game_time != 0:
 		cold_snap_time = globals.game_time
 		ColdSnap.emit(10)
 	if globals.game_time == cold_snap_heal_time + cold_snap_time:

@@ -1,3 +1,4 @@
+class_name BaseCrop
 extends Node
 
 @export var crop_name: String
@@ -11,3 +12,12 @@ extends Node
 @export var age_1 = 20
 @export var age_2 = 40
 @export var age_3 = 55
+@export var harvestable_age = 55
+
+func isHarvestable(tick_age: float) -> bool:
+	return tick_age >= harvestable_age
+
+func onHarvest(ground: Ground, tile_pos: Vector2i, grid_idx: int):
+	ground.set_cell(0, tile_pos, ground.get_cell_source_id(0, tile_pos), Vector2i(0, 0))
+	globals.money += sell_price
+	globals.grid.remove_at(grid_idx)

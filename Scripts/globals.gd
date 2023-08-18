@@ -10,7 +10,8 @@ var selected_crop = []
 var crops_available = []
 
 var crops_in_market = [preload("res://Crops/wheat.tscn").instantiate(), 
-						preload("res://Crops/beans.tscn").instantiate(), preload("res://Crops/potato.tscn").instantiate(),
+						preload("res://Crops/beans.tscn").instantiate(),
+						preload("res://Crops/potato.tscn").instantiate(),
 						preload("res://Crops/pumpkin.tscn").instantiate()
 						]
 

@@ -71,7 +71,7 @@ func _on_time_x_1_button_up():
 
 func _on_sickle_button_up():
 	globals.sickle_equiped = true
-	Input.set_custom_mouse_cursor(load("res://Assets/sickle.png"), 0, Vector2(5, 5))
+	Input.set_custom_mouse_cursor(load("res://Assets/sickle.png"), Input.CURSOR_ARROW, Vector2(5, 5))
 	$"GUI/InfoContainer/SiloContainer/Silo".deselect_all()
 	globals.selected_crop = []
 
