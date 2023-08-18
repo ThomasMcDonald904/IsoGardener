@@ -39,9 +39,12 @@ func update_purchase_button(_final_amount: int):
 	if _final_amount > globals.money:
 		button.text = "funds insufficient"
 		button.set_modulate("cb0b0b")
+		$HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/Total.text = "[color=cb0b0b]" + str(_final_amount)
 	else:
 		button.text = "purchase"
 		button.set_modulate("ffffff")
+		$HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/Total.text = "[color=80c511]" + str(_final_amount)
+
 
 
 
@@ -50,6 +53,7 @@ func _on_purchase_button_up():
 		var button = $HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/Purchase
 		var final_amount = int($HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/Total.text.split("]")[1])
 		var amount = int($HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/Amount.value)
+		update_purchase_button(final_amount)
 		if button.text != "funds insufficient":
 			globals.money -= final_amount
 			if crop not in get_all_first_elements(globals.crops_available):

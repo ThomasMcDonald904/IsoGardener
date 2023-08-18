@@ -106,6 +106,7 @@ text = "0
 script = ExtResource("7_jgim1")
 
 [node name="MainGUI" type="Control" parent="GUI"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -184,7 +185,6 @@ grow_vertical = 2
 icon = ExtResource("12_6ogsg")
 
 [node name="MarketGUI" type="Control" parent="GUI"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -376,6 +376,7 @@ size_flags_horizontal = 8
 size_flags_stretch_ratio = 2.64
 
 [node name="HelpIndications" type="Control" parent="GUI/MarketGUI"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -476,6 +477,7 @@ mouse_filter = 2
 color = Color(0.215686, 0.215686, 0.215686, 0.427451)
 
 [node name="World" parent="." instance=ExtResource("2_p8dei")]
+visible = false
 position = Vector2(90, 259)
 scale = Vector2(1.5, 1.5)
 
